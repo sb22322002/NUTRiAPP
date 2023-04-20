@@ -2,22 +2,26 @@
 import java.io.BufferedReader;  
 import java.io.FileReader;  
 import java.io.IOException;  
+
 public class IngredientProcess  {  
-    public static void main(String[] args)   
+    public static void readIngredients(int arg)   
     {  
-    String line = "";  
-    String splitBy = ",";  
+    String line = "";      
+    String id = Integer.toString(arg);
     try   
     {  
-    //parsing a CSV file into BufferedReader class constructor  
-    BufferedReader br = new BufferedReader(new FileReader("ingredients.csv"));  
-    while ((line = br.readLine()) != null)   //returns a Boolean value  
+    BufferedReader br = new BufferedReader(new FileReader("./food/ingredients.csv"));  
+    while ((line = br.readLine()) != null)  
     {  
-    String[] ingredient = line.split(splitBy);    // use comma as separator  
-    for (int i = 0; ingredient[i] != null; i++) {
-
-    }
-    }  
+        String[] ingredient = line.split(",");   
+        if (ingredient[0].equals(id)) {
+            for (int i = 0; i < 53; i++) { // there happen to be 53 parts to each ingredient (and != null wasn't working when I tried it)
+            //System.out.println(ingredient[i]); confirmation of running through all
+            Ingredient thisIngredient = new Ingredient(ingredient); //create new ingredient object
+        }
+        }
+        
+     }  
     }   
     catch (IOException e)   {  
         e.printStackTrace();  
