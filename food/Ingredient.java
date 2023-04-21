@@ -4,6 +4,9 @@ public class Ingredient {
         this.id = Integer.parseInt(modifiers[0]);
         System.out.println(this.id);
     }
+    public Ingredient() {
+        this.id = 0000;
+    }
 
     @Override 
     public String toString() {
