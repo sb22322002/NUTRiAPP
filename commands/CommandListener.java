@@ -1,29 +1,43 @@
+/**
+ * The CommandListener class listens to commands entered by the user and executes
+ * the corresponding command.
+ * 
+ * @author Seth Button-Mosher
+ * @version 1.0
+ * @since 4/21/2023
+ */
 public class CommandListener{
+    /**
+     * The constructor initializes an instance of the CommandListener
+     * class with a specified command and executes the corresponding command.
+     * 
+     * @param command A string representing the command to be executed.
+     */
     public CommandListener(String command){
         switch(command.toLowerCase()){
             case "help":
                 Help help = new Help();
                 break;
             case "addingredient":
-                System.out.println(command);
+                AddIngredient addIngredient = new AddIngredient();
                 break;
             case "addrecipe":
-                System.out.println(command);
+                AddRecipe addRecipe = new AddRecipe();
                 break;
             case "addmeal":
-                System.out.println(command);
+                AddMeal addMeal = new AddMeal();
                 break;
             case "preparemeal":
-                System.out.println(command);
+                PrepareMeal prepareMeal = new PrepareMeal();
                 break;
             case "trackworkout":
-                System.out.println(command);
+                TrackWorkout trackWorkout = new TrackWorkout();
                 break;
             case "createshoppinglist":
-                System.out.println(command);
+                CreateShoppingList createShoppingList = new CreateShoppingList();
                 break;
             case "viewhistory":
-                System.out.println(command);
+                ViewHistory viewHistory = new ViewHistory();
                 break;
             case "quit":
                 System.exit(0);
