@@ -1,5 +1,3 @@
-public class Command{
-    public Command(String command){
-
-    }
+interface Command {
+    public void execute();
 }
