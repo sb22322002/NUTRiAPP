@@ -20,9 +20,9 @@ public class main{
       System.out.println("Thank you, your profile has been saved and you are now ready to start using the NUTRiAPP!\n");
       // *
       
-      System.out.println("Type help for a list of commands.\n");
+      System.out.println("Type \"help\" for a list of commands.\n");
 
-      while (!command_str.equals("quit")){
+      while (true){
          command_str = keyboard.nextLine("User@NUTRiAPP> ");
          CommandListener command = new CommandListener(command_str);
       }
