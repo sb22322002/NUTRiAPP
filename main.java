@@ -6,35 +6,25 @@ public class main{
       double height = 0.0;
       double weight = 0.0;
       String goal;
-      Scanner keyboard = new Scanner(System.in);
+      Keyboard keyboard = new Keyboard();
       String command_str = "";
 
       System.out.println("Welcome to the NUTRiAPP. The app that will help create you new healthy life style!\n");
 
       // moving to another class
       System.out.println("To begin, please enter some information about yourself.");
-      System.out.print("Full Name: ");
-      name = keyboard.nextLine();
-      while (height <= 0.0){
-         System.out.print("Height (in.): ");
-         height = keyboard.nextDouble();
-      }
-      while(weight <= 0.0){
-         System.out.print("Weight (lbs.): ");
-         weight = keyboard.nextDouble();
-      }
-      keyboard.nextLine();
-      System.out.print("Now please enter a weight goal (Maintain, Lose, Gain): ");
-      goal = keyboard.nextLine();
+      name = keyboard.nextLine("Full Name: ");
+      height = keyboard.nextDouble("Height (in.): ");
+      weight = keyboard.nextDouble("Weight (lbs.): ");
+      goal = keyboard.nextLine("Now please enter a weight goal (Maintain, Lose, Gain): ");
       System.out.println("Thank you, your profile has been saved and you are now ready to start using the NUTRiAPP!\n");
       // *
       
       System.out.println("Type help for a list of commands.\n");
 
       while (!command_str.equals("quit")){
-         System.out.print("User@NUTRiAPP> ");
-         command_str = keyboard.nextLine();
-         Command command = new Command(command_str);
+         command_str = keyboard.nextLine("User@NUTRiAPP> ");
+         CommandListener command = new CommandListener(command_str);
       }
    }
 }
