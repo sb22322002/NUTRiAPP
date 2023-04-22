@@ -9,7 +9,7 @@ Name
 Height
 Weight
 Birth-date - this is used to calculate the user's age
-2.      The user may choose from one of several different goals.
+2. The user may choose from one of several different goals.
 
 Maintain Weight - sets a target number of calories so that the user maintains their current weight.
 Lose weight - sets a target number of calories based on the user's stats such that they lose an average of 1-2 pounds per week until reaching a target weight goal.
