@@ -67,7 +67,7 @@ Workouts
 13.   At the beginning of each day, the user's previous daily activity should be saved to their history and the user should be prompted to enter their current weight.
 
 # B. Non-Functional Requirements
-## The application must provide a plain text user interface (PTUI) through which a user may interact with the application using simple, menu-driven commands.
+The application must provide a plain text user interface (PTUI) through which a user may interact with the application using simple, menu-driven commands.
 
 The user's profile must be stored persistently between restarts of the application.
 You have been provided with a database of available ingredients in CSV format. The database contains much more information than is necessary to store in the user's stock of ingredients. The user should be able to search the database for ingredients to add to their stock and/or recipes.
