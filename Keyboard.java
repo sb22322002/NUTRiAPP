@@ -4,7 +4,7 @@ import java.lang.NumberFormatException;
 
 /**
  * The Keyboard class provides methods for reading input from the keyboard.
- * This class provides methods for reading strings, integers, and doubles, and
+ * This class provides methods for reading several different variables and
  * will continue to prompt the user until valid input is received. If an error
  * occurs, an appropriate error message will be printed to the console.
  * 
@@ -31,6 +31,7 @@ public class Keyboard{
         String input_str = "";
         
         while (input_str.equals("")){
+
             System.out.print(prompt);
 
             try{
@@ -61,6 +62,7 @@ public class Keyboard{
         int input_int = 0;
 
         while (input_int <= 0){
+
             System.out.print(prompt);
 
             try{
@@ -94,6 +96,7 @@ public class Keyboard{
         double input_double = 0.0;
 
         while (input_double <= 0.0){
+
             System.out.print(prompt);
 
             try{
@@ -112,5 +115,43 @@ public class Keyboard{
         }
 
         return input_double;
+    }
+
+    /**
+     * Prompts the user for a workout intensity and reads a string from the standard input stream.
+     * 
+     * @param prompt - a message to display to the user before reading input
+     * @return input_str - the workout intensity entered by the user
+     * @throws NoSuchElementException if the scanner is closed suddenly
+     * @throws Exception if any other error occurs while reading input
+     */
+    public String nextWorkoutIntensity(String prompt){
+        String input_str = "";
+        
+        while (!input_str.equals("high") &&
+        !input_str.equals("moderate") &&
+        !input_str.equals("low")){
+
+            System.out.print(prompt);
+
+            try{
+                input_str = scan.nextLine().toLowerCase();
+
+                if(!input_str.equals("high") &&
+                !input_str.equals("moderate") &&
+                !input_str.equals("low")){
+                    System.out.println("Error - Please enter \"high\", \"moderate\", or \"low\"");
+                }
+            }
+            catch(NoSuchElementException noEle){
+                System.exit(1);
+            }
+            catch(Exception e){
+                System.out.println("Error - " + e);
+                System.exit(1);
+            }
+        }
+
+        return input_str;
     }
 }
