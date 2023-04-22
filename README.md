@@ -1,10 +1,10 @@
 # NUTRiAPP
-## The purpose of the project is to build skills in developing and managing the software engineering process with special attention to design process. The project is sufficiently complex to demonstrate most of the software development lifecycle phases and will not burden the development team with a lot of programming and testing efforts.  The following sections categorize the business requirements for the intended NUTRiAPP.
+The purpose of the project is to build skills in developing and managing the software engineering process with special attention to design process. The project is sufficiently complex to demonstrate most of the software development lifecycle phases and will not burden the development team with a lot of programming and testing efforts.  The following sections categorize the business requirements for the intended NUTRiAPP.
 
  
 
 # A. Functional Requirements
-## A user may enter statistics about themselves including:
+1. A user may enter statistics about themselves including:
 Name
 Height
 Weight
