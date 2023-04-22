@@ -14,8 +14,8 @@ public class IngredientProcess  {
         {  
             String[] ingredient = line.split(",");   
             if (ingredient[1].equals(arg)) {
-                for (int i = 0; i < 53; i++) { // there happen to be 53 parts to each ingredient (and != null wasn't working when I tried it)
-                //System.out.println(ingredient[1]); confirmation of running through all
+                for (int i = 0; ingredient[i] != null; i++) { // there happen to be 53 parts to each ingredient (and != null wasn't working when I tried it)
+                //System.out.println(ingredient[1]); //confirmation of running through all
                 thisIngredient = new Ingredient(ingredient); //create new ingredient object
             }
             }
@@ -41,8 +41,8 @@ public class IngredientProcess  {
         while ((line = br.readLine()) != null)  
         {  
             String[] ingredient = line.split(",");   
-            if (ingredient[0].equals(id)) {
-                for (int i = 0; i < 53; i++) { // there happen to be 53 parts to each ingredient (and != null wasn't working when I tried it)
+            if (ingredient[0] == id) {
+                for (int i = 0; ingredient[i] != null; i++) { // there happen to be 53 parts to each ingredient (and != null wasn't working when I tried it)
                 System.out.println(ingredient[1]); //confirmation of running through all
                 thisIngredient = new Ingredient(ingredient); //create new ingredient object
             }
@@ -57,6 +57,6 @@ public class IngredientProcess  {
             }
         return null;
  
-    }  
+    }
 }
 
