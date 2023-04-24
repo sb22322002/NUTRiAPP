@@ -1,9 +1,9 @@
 public class ViewHistory implements Command{
-    public ViewHistory(){
-        execute();
+    public ViewHistory(User user){
+        execute(user);
     }
 
-    private void execute(){
-        System.out.println("viewed history");
+    private void execute(User user){
+        System.out.println(user.getHigh_intensity_workouts());
     }
 }
