@@ -89,7 +89,6 @@ public class User {
       try {
          File file = new File("user.json");
          om.writeValue(file, this);
-         System.out.println("User profile saved to file: " + file.getAbsolutePath());
       } catch (Exception e) {
          e.printStackTrace();
       }
