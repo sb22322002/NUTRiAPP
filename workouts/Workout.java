@@ -23,5 +23,5 @@ public interface Workout{
      * Gets the time that the workout was completed.
      * @return the time that the workout was completed
      */
-    public LocalDateTime getTime();
+    public String getTime();
 }
