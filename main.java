@@ -36,7 +36,7 @@ public class main{
       System.out.println("Type \"help\" for a list of commands.\n");
 
       while (true){
-         String command_str = keyboard.nextLine(user.getUserName() + "@NUTRiAPP> ");
+         String command_str = keyboard.nextLine(user.userName() + "@NUTRiAPP> ");
          CommandListener command = new CommandListener(command_str, user);
       }
    }

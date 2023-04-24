@@ -5,15 +5,18 @@ import java.io.File;
 
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class User {
-   private String name = "";
+   private String name;
    private double height;
    private double weight;
    private String goal;
    private String bday;
-   private ArrayList<HighIntensityWorkout> high_intensity_workouts;
-   private ArrayList<ModerateIntensityWorkout> moderate_intensity_workouts;
-   private ArrayList<LowIntensityWorkout> low_intensity_workouts;
+   private String username;
+   private ArrayList<HighIntensityWorkout> high_intensity_workouts = new ArrayList<HighIntensityWorkout>();
+   private ArrayList<ModerateIntensityWorkout> moderate_intensity_workouts = new ArrayList<ModerateIntensityWorkout>();
+   private ArrayList<LowIntensityWorkout> low_intensity_workouts = new ArrayList<LowIntensityWorkout>();
 
    public User(){
       Runtime.getRuntime().addShutdownHook(new Thread(){
@@ -25,6 +28,11 @@ public class User {
 
    public User(File saveFile){
       createNewSave(saveFile);
+      Runtime.getRuntime().addShutdownHook(new Thread(){
+         public void run(){
+            saveProfile();
+         }
+      });
    }
 
    //accessors
@@ -64,11 +72,12 @@ public class User {
       name = keyboard.nextLine("Full Name: ");
       height = keyboard.nextDouble("Height (in.): ");
       weight = keyboard.nextDouble("Weight (lbs.): ");
+      bday = keyboard.nextBirthday("Date of Birth (YYYY-MM-DD): ");
       goal = keyboard.nextLine("Now please enter a weight goal (\"maintain\", \"lose\", \"gain\": ");
       System.out.println("Thank you, your profile has been saved and you are now ready to start using the NUTRiAPP!\n");
    }
 
-   public String getUserName(){
+   public String userName(){
       if (!name.contains(" ")){
          return name;
       }
@@ -76,6 +85,12 @@ public class User {
    }
 
    private void saveProfile(){
-      System.out.println(getUserName());
+      ObjectMapper om = new ObjectMapper();
+      try {
+         File file = new File("user.json");
+         om.writeValue(file, this);
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
    }
 }
