@@ -13,7 +13,7 @@ public class CommandListener{
      * 
      * @param command A string representing the command to be executed.
      */
-    public CommandListener(String command){
+    public CommandListener(String command, User user){
         switch(command.toLowerCase()){
             case "help":
                 Help help = new Help();
@@ -31,13 +31,13 @@ public class CommandListener{
                 PrepareMeal prepareMeal = new PrepareMeal();
                 break;
             case "trackworkout":
-                TrackWorkout trackWorkout = new TrackWorkout();
+                TrackWorkout trackWorkout = new TrackWorkout(user);
                 break;
             case "createshoppinglist":
                 CreateShoppingList createShoppingList = new CreateShoppingList();
                 break;
             case "viewhistory":
-                ViewHistory viewHistory = new ViewHistory();
+                ViewHistory viewHistory = new ViewHistory(user);
                 break;
             case "quit":
                 System.exit(0);
