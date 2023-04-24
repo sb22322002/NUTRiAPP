@@ -3,6 +3,7 @@
 	"height": 68,
 	"weight": 120,
 	"goal": "lose",
+	"bday": "2019-12-27",
 	"high_intensity_workouts": [
 	  	{
 			"minutes": 20,

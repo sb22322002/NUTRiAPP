@@ -11,10 +11,6 @@ public class main{
    private static final String SAVE_FILE_NAME = "user.json";
 
    public static void main(String[] args) {
-      Keyboard keyboard = new Keyboard();
-      String command_str = "";
-      User user = new User();
-
       File saveFile = new File(SAVE_FILE_NAME);
       try{
          if (saveFile.exists()){
@@ -22,19 +18,25 @@ public class main{
             ObjectMapper om = new ObjectMapper();
             om.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
             //JSON file to Java object
-            user = om.readValue(saveFile, User.class);
+            User user = om.readValue(saveFile, User.class);
+            createCommandListener(user);
          }
          else{
-            user = new User(saveFile);
+            User user = new User(saveFile);
+            createCommandListener(user);
          }
       }
       catch(IOException e){
          e.printStackTrace();
       }
+   }
+
+   public static void createCommandListener(User user){
+      Keyboard keyboard = new Keyboard();
       System.out.println("Type \"help\" for a list of commands.\n");
 
       while (true){
-         command_str = keyboard.nextLine(user.getUserName() + "@NUTRiAPP> ");
+         String command_str = keyboard.nextLine(user.getUserName() + "@NUTRiAPP> ");
          CommandListener command = new CommandListener(command_str, user);
       }
    }

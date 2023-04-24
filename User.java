@@ -6,15 +6,22 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class User {
-   private String name;
+   private String name = "";
    private double height;
    private double weight;
    private String goal;
+   private String bday;
    private ArrayList<HighIntensityWorkout> high_intensity_workouts;
    private ArrayList<ModerateIntensityWorkout> moderate_intensity_workouts;
    private ArrayList<LowIntensityWorkout> low_intensity_workouts;
 
-   public User(){}
+   public User(){
+      Runtime.getRuntime().addShutdownHook(new Thread(){
+         public void run(){
+            saveProfile();
+         }
+      });
+   }
 
    public User(File saveFile){
       createNewSave(saveFile);
@@ -25,7 +32,7 @@ public class User {
    public double getHeight() { return height; }
    public double getWeight() { return weight; }
    public String getGoal() { return goal; }
-   //public String getBday() { return bday; }
+   public String getBday() { return bday; }
    public ArrayList<HighIntensityWorkout> getHigh_intensity_workouts(){ return high_intensity_workouts; }
    public ArrayList<ModerateIntensityWorkout> getModerate_intensity_workouts(){ return moderate_intensity_workouts; }
    public ArrayList<LowIntensityWorkout> getLow_intensity_workouts(){ return low_intensity_workouts; }
@@ -36,7 +43,7 @@ public class User {
    public void setHeight(double _height) { height = _height; }
    public void setWeight(double _weight) { weight = _weight; }
    public void setGoal(String _goal) { goal = _goal; }
-   //public void setBday(String _bday) { bday = _bday; }
+   public void setBday(String _bday) { bday = _bday; }
    public void addHighIntensityWorkout(HighIntensityWorkout workout) { high_intensity_workouts.add(workout); }
    public void addModerateIntensityWorkout(ModerateIntensityWorkout workout) { moderate_intensity_workouts.add(workout); }
    public void addLowIntensityWorkout(LowIntensityWorkout workout) { low_intensity_workouts.add(workout); }
@@ -66,5 +73,9 @@ public class User {
          return name;
       }
       return name.split(" ", 2)[0] + name.substring(name.lastIndexOf(" ")+1);
+   }
+
+   private void saveProfile(){
+      System.out.println(getUserName());
    }
 }
