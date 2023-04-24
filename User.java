@@ -7,6 +7,15 @@ import java.util.ArrayList;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * This class represents a user of the NUTRiAPP application,
+ * and contains their personal information.
+ * 
+ * @author Daniel Kaszuba
+ * @author Seth Button-Mosher
+ * @version 1.0
+ * @since 4/21/2023
+ */
 public class User {
    private String name;
    private double height;
@@ -18,7 +27,12 @@ public class User {
    private ArrayList<ModerateIntensityWorkout> moderate_intensity_workouts = new ArrayList<ModerateIntensityWorkout>();
    private ArrayList<LowIntensityWorkout> low_intensity_workouts = new ArrayList<LowIntensityWorkout>();
 
+   /**
+    * Default constructor for the User class. Creates a new empty User object.
+    * This is used when a "user.json" file is found.
+    */
    public User(){
+      // Registers a shutdown hook to save user profile data when the application is closed.
       Runtime.getRuntime().addShutdownHook(new Thread(){
          public void run(){
             saveProfile();
@@ -26,8 +40,14 @@ public class User {
       });
    }
 
+   /**
+    * Constructor for the User class that creates a new User object
+    * and saves their input to a new "user.json" file.
+    * @param saveFile the file the user's data will be saved
+    */
    public User(File saveFile){
       createNewSave(saveFile);
+      // Registers a shutdown hook to save user profile data when the application is closed.
       Runtime.getRuntime().addShutdownHook(new Thread(){
          public void run(){
             saveProfile();
@@ -41,6 +61,7 @@ public class User {
    public double getWeight() { return weight; }
    public String getGoal() { return goal; }
    public String getBday() { return bday; }
+   // note - naming conventions for accessors are due to ObjectMapper reading
    public ArrayList<HighIntensityWorkout> getHigh_intensity_workouts(){ return high_intensity_workouts; }
    public ArrayList<ModerateIntensityWorkout> getModerate_intensity_workouts(){ return moderate_intensity_workouts; }
    public ArrayList<LowIntensityWorkout> getLow_intensity_workouts(){ return low_intensity_workouts; }
@@ -57,13 +78,21 @@ public class User {
    public void addLowIntensityWorkout(LowIntensityWorkout workout) { low_intensity_workouts.add(workout); }
 
 
-   //compute age
+   /**
+    * Computes the age of the user based on their birthdate.
+    * @param birthdate a String representing the user's birthdate in the format "YYYY-MM-DD"
+    * @return the age of the user as an int
+    */
    public static int getAge (String birthdate) {
       LocalDate dob = LocalDate.parse(birthdate); 
       LocalDate curDate = LocalDate.now();
       return Period.between(dob, curDate).getYears();
    }
 
+   /**
+    * Creates a new save file for the user and prompts the user for their personal information.
+    * @param saveFile the file in which the user's data will be saved
+    */
    private void createNewSave(File saveFile){
       Keyboard keyboard = new Keyboard();
       System.out.println("Welcome to the NUTRiAPP. The app that will help create you new healthy life style!\n");
@@ -77,6 +106,10 @@ public class User {
       System.out.println("Thank you, your profile has been saved and you are now ready to start using the NUTRiAPP!\n");
    }
 
+   /**
+    * Returns the username of the user.
+    * @return the username of the user
+    */
    public String userName(){
       if (!name.contains(" ")){
          return name;
@@ -84,10 +117,15 @@ public class User {
       return name.split(" ", 2)[0] + name.substring(name.lastIndexOf(" ")+1);
    }
 
+   /**
+    * This method occurs on shutdown and saves the user's profile to a
+    * JSON file named "user.json" using the Jackson ObjectMapper library.
+    */
    private void saveProfile(){
+      String SAVE_FILE_NAME = "user.json";
       ObjectMapper om = new ObjectMapper();
       try {
-         File file = new File("user.json");
+         File file = new File(SAVE_FILE_NAME);
          om.writeValue(file, this);
       } catch (Exception e) {
          e.printStackTrace();

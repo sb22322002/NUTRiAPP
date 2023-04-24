@@ -31,6 +31,11 @@ public class main{
       }
    }
 
+   /**
+    * Creates a command listener for a given user,
+    * allowing them to interact with NUTRiAPP through command inputs.
+    * @param user the user for whom the command listener is created
+    * */
    public static void createCommandListener(User user){
       Keyboard keyboard = new Keyboard();
       System.out.println("Type \"help\" for a list of commands.\n");
