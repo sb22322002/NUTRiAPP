@@ -1,0 +1,38 @@
+{
+	"name": "Seth",
+	"height": 68,
+	"weight": 120,
+	"goal": "lose",
+	"high_intensity_workouts": [
+	  	{
+			"minutes": 20,
+			"calories": 100.0,
+		  	"time": "2019-01-21T05:47:08.644"
+		},
+	  	{
+	  		"minutes": 30,
+			"calories": 300.0,
+		  	"time": "2019-02-21T05:47:08.644"
+	  	}
+	],
+    "moderate_intensity_workouts": [
+	  	{
+			"minutes": 40,
+		  	"time": "2019-01-22T05:47:08.644"
+		},
+	  	{
+	  		"minutes": 30,
+		  	"time": "2019-02-23T05:47:08.644"
+	  	}
+	],
+  	"low_intensity_workouts": [
+	  	{
+			"minutes": 45,
+		  	"time": "2019-01-10T05:47:08.644"
+		},
+	  	{
+	  		"minutes": 30,
+		  	"time": "2019-02-01T05:47:08.644"
+	  	}
+	]
+}
