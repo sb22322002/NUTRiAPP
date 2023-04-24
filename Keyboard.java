@@ -2,6 +2,9 @@ import java.util.Scanner;
 import java.util.NoSuchElementException;
 import java.lang.NumberFormatException;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 /**
  * The Keyboard class provides methods for reading input from the keyboard.
  * This class provides methods for reading several different variables and
@@ -132,6 +135,45 @@ public class Keyboard{
         }
 
         return input_double;
+    }
+
+    /**
+     * Prompts the user for a birthday and reads a String from the standard input stream.
+     * 
+     * @param prompt - a message to display to the user before reading input
+     * @return input_str - the birthday string entered by the user
+     * @throws NumberFormatException if the input is not a number
+     * @throws NoSuchElementException if the scanner is closed suddenly
+     * @throws Exception if any other error occurs while reading input
+     */
+    public String nextBirthday(String prompt){
+        String input_str = "";
+        boolean valid_date = false;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        dateFormat.setLenient(false);
+
+        while (!valid_date){
+
+            System.out.print(prompt);
+            
+            try {
+                input_str = scan.nextLine();
+                dateFormat.parse(input_str);
+                valid_date = true;
+            }
+            catch (ParseException e) {
+                System.out.println("Error - Invalid birthday format must be YYYY-MM-DD.");
+            }
+            catch(NoSuchElementException noEle){
+                System.exit(1);
+            }
+            catch(Exception e){
+                System.out.println("Error - " + e);
+                System.exit(1);
+            }
+        }
+
+        return input_str;
     }
 
     /**
