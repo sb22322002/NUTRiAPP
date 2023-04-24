@@ -1,7 +1,7 @@
 # simple build script
 import os
 err = 0
-classpath = "-classpath \"./food;./commands;./workouts;\""
+classpath = "-classpath \"./jackson-annotations-2.15.0.jar;./jackson-core-2.15.0.jar;./jackson-databind-2.15.0.jar;./food;./commands;./workouts;\""
 try:
     # build main
     cmd = "javac " + classpath + " -d ./ ./*.java"
