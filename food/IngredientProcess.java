@@ -30,7 +30,7 @@ public class IngredientProcess  {
         return null;
  
     }
-    public static Ingredient readIngredientById(int arg)   
+    public static Ingredient readIngredientById(String arg)   
     {  
         String line = "";      
         try   
@@ -58,6 +58,6 @@ public class IngredientProcess  {
  
     }
 
-    
+
 }
 
