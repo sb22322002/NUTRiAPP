@@ -108,7 +108,7 @@ public class User {
       height = keyboard.nextDouble("Height (in.): ");
       weight = keyboard.nextDouble("Weight (lbs.): ");
       bday = keyboard.nextBirthday("Date of Birth (YYYY-MM-DD): ");
-      goal = keyboard.nextLine("Now please enter a weight goal (\"maintain\", \"lose\", \"gain\": ");
+      goal = keyboard.nextLine("Now please enter a weight goal (\"maintain\", \"lose\", \"gain\"): ");
       activity = 1.2 + (0.08) * (keyboard.nextInt("Now please enter your planned activity level on a scale of 0 to 10: "));
       System.out.println("Thank you, your profile has been saved and you are now ready to start using the NUTRiAPP!\n");
    }
