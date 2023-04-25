@@ -19,10 +19,10 @@ public class CommandListener{
                 Help help = new Help();
                 break;
             case "addingredient":
-                AddIngredient addIngredient = new AddIngredient();
+                AddIngredient addIngredient = new AddIngredient(user);
                 break;
             case "addrecipe":
-                AddRecipe addRecipe = new AddRecipe();
+                AddRecipe addRecipe = new AddRecipe(user);
                 break;
             case "addmeal":
                 AddMeal addMeal = new AddMeal();

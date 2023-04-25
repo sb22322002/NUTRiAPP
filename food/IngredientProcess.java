@@ -4,50 +4,43 @@ import java.io.FileReader;
 import java.io.IOException;  
 
 public class IngredientProcess  {  
-    public static Ingredient readIngredientByName(String arg) {
-        String line = "";      
-        try   
-        {  
-        Ingredient thisIngredient = new Ingredient();
-        BufferedReader br = new BufferedReader(new FileReader("./food/ingredients.csv"));  
-        while ((line = br.readLine()) != null)  
-        {  
+    public static void searchIngredientsByName(String arg) {
+        String line = "";
+        try
+        {
+        BufferedReader br = new BufferedReader(new FileReader("./food/ingredients.csv"));
+        while ((line = br.readLine()) != null)
+        {
             String[] ingredient = line.split(",");
-            String[] ingredient_name = line.split("\"");
-            if (ingredient_name.equals(arg)) {
-                for (int i = 0; ingredient[i] != null; i++) { // there happen to be 53 parts to each ingredient (and != null wasn't working when I tried it)
-                //System.out.println(ingredient[1]); //confirmation of running through all
-                thisIngredient = new Ingredient(ingredient); //create new ingredient object
+            if (line.toLowerCase().contains(arg.toLowerCase())) {
+                for (int i = 0; i < 4; i++) { 
+                    System.out.print(ingredient[i] + " "); 
+                }
+                System.out.print("\n");
             }
-            }
-            
+
         } 
         br.close();
-        return thisIngredient;  
-        }   
-        catch (IOException e)   {  
-            e.printStackTrace();  
+        }
+        catch (IOException e)   {
+            e.printStackTrace();
             }
-        return null;
  
-    }
-    public static Ingredient readIngredientById(String arg)   
+    } 
+    public static Ingredient readIngredientById(int arg)   
     {  
         String line = "";      
         try   
         {  
         Ingredient thisIngredient = new Ingredient();
         BufferedReader br = new BufferedReader(new FileReader("./food/ingredients.csv"));  
+        br.readLine();
         while ((line = br.readLine()) != null)  
         {  
             String[] ingredient = line.split(",");   
-            if (ingredient[0].equals(arg)) {
-                for (int i = 0; ingredient[i] != null; i++) { // there happen to be 53 parts to each ingredient (and != null wasn't working when I tried it)
-                System.out.println(ingredient[1]); //confirmation of running through all
-                thisIngredient = new Ingredient(ingredient); //create new ingredient object
+            if (Integer.parseInt(ingredient[0]) == arg) {
+                thisIngredient = new Ingredient(line); //create new ingredient object
             }
-            }
-            
         } 
         br.close();
         return thisIngredient;  
