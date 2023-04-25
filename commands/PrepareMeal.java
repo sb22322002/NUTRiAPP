@@ -1,9 +1,9 @@
 public class PrepareMeal implements Command{
-    public PrepareMeal(){
-        execute();
+    public PrepareMeal(User user){
+        execute(user);
     }
 
-    private void execute(){
+    private void execute(User user){
         System.out.println("prepared meal");
     }
 }

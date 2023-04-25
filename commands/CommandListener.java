@@ -25,10 +25,10 @@ public class CommandListener{
                 AddRecipe addRecipe = new AddRecipe(user);
                 break;
             case "addmeal":
-                AddMeal addMeal = new AddMeal();
+                AddMeal addMeal = new AddMeal(user);
                 break;
             case "preparemeal":
-                PrepareMeal prepareMeal = new PrepareMeal();
+                PrepareMeal prepareMeal = new PrepareMeal(user);
                 break;
             case "trackworkout":
                 TrackWorkout trackWorkout = new TrackWorkout(user);
