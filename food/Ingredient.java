@@ -4,6 +4,7 @@ public class Ingredient {
     String id;
     String desc;
     String name;
+
     String[] nutrition;
     int stock;
     public Ingredient(String[] modifiers) {
