@@ -20,6 +20,7 @@ public class User {
    private String name;
    private double height;
    private double weight;
+   private double activity;
    private String goal;
    private String bday;
    private String username;
@@ -61,6 +62,7 @@ public class User {
    public double getWeight() { return weight; }
    public String getGoal() { return goal; }
    public String getBday() { return bday; }
+   public double getActivity() { return activity; }
    // note - naming conventions for accessors are due to ObjectMapper reading
    public ArrayList<HighIntensityWorkout> getHigh_intensity_workouts(){ return high_intensity_workouts; }
    public ArrayList<ModerateIntensityWorkout> getModerate_intensity_workouts(){ return moderate_intensity_workouts; }
@@ -73,6 +75,7 @@ public class User {
    public void setWeight(double _weight) { weight = _weight; }
    public void setGoal(String _goal) { goal = _goal; }
    public void setBday(String _bday) { bday = _bday; }
+   public void setActivity(double _activity) { activity = _activity; }
    public void addHighIntensityWorkout(HighIntensityWorkout workout) { high_intensity_workouts.add(workout); }
    public void addModerateIntensityWorkout(ModerateIntensityWorkout workout) { moderate_intensity_workouts.add(workout); }
    public void addLowIntensityWorkout(LowIntensityWorkout workout) { low_intensity_workouts.add(workout); }
@@ -103,6 +106,7 @@ public class User {
       weight = keyboard.nextDouble("Weight (lbs.): ");
       bday = keyboard.nextBirthday("Date of Birth (YYYY-MM-DD): ");
       goal = keyboard.nextLine("Now please enter a weight goal (\"maintain\", \"lose\", \"gain\": ");
+      activity = 1.2 + (0.08) * (keyboard.nextInt("Now please enter your planned activity level on a scale of 0 to 10"));
       System.out.println("Thank you, your profile has been saved and you are now ready to start using the NUTRiAPP!\n");
    }
 

@@ -5,13 +5,13 @@ public class Goal {
     public Goal(User user){
         switch(user.getGoal()){
             case "gain":
-                daily_target_calories = ((10*user.getWeight()) + (6.25*user.getHeight()) - (5*user.calcAge()) + 505);
+                daily_target_calories = (((10*user.getWeight()) + (6.25*user.getHeight()) - (5*user.calcAge()))*user. getActivity() + 505);
                 break;
             case "maintain":
-                daily_target_calories = ((10*user.getWeight()) + (6.25*user.getHeight()) - (5*user.calcAge()) + 5);
+                daily_target_calories = (((10*user.getWeight()) + (6.25*user.getHeight()) - (5*user.calcAge()))*user. getActivity() + 5);
                 break;
             case "lose":
-                daily_target_calories = ((10*user.getWeight()) + (6.25*user.getHeight()) - (5*user.calcAge()) - 495);
+                daily_target_calories = (((10*user.getWeight()) + (6.25*user.getHeight()) - (5*user.calcAge()))*user. getActivity() - 495);
                 break;
         }
     }
