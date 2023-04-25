@@ -32,30 +32,13 @@ public class Keyboard{
      */
     public String nextLine(String prompt){
         String input_str = "";
-        boolean special_chars = true;
         
-        while (input_str.equals("") || special_chars){
+        while (input_str.equals("")){
 
             System.out.print(prompt);
 
             try{
                 input_str = scan.nextLine();
-
-                special_chars = false;
-                for (int i = 0; i < input_str.length(); i++) {
-                    char input_char = input_str.charAt(i);
-                    // Checking the character for not being a special character
-                    if (!Character.isDigit(input_char)
-                        && !Character.isLetter(input_char)
-                        && !Character.isWhitespace(input_char)
-                        && !("" + input_char).equals("-")
-                        && !("" + input_char).equals(".")){
-                            System.out.println("Error - Special characters are not allowed.");
-                            special_chars = true;
-                            break;
-                    }
-                }
-
             }
             catch(NoSuchElementException noEle){
                 System.exit(1);
