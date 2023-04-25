@@ -19,10 +19,12 @@ public class main{
             om.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
             //JSON file to Java object
             User user = om.readValue(saveFile, User.class);
+            Goal goal = new Goal(user);
             createCommandListener(user);
          }
          else{
             User user = new User(saveFile);
+            Goal goal = new Goal(user);
             createCommandListener(user);
          }
       }

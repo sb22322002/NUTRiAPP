@@ -12,8 +12,9 @@ public class IngredientProcess  {
         BufferedReader br = new BufferedReader(new FileReader("./food/ingredients.csv"));  
         while ((line = br.readLine()) != null)  
         {  
-            String[] ingredient = line.split(",(?=(?:[^\"]*$)", -1);   
-            if (ingredient[1].equals(arg)) {
+            String[] ingredient = line.split(",");
+            String[] ingredient_name = line.split("\"");
+            if (ingredient_name.equals(arg)) {
                 for (int i = 0; ingredient[i] != null; i++) { // there happen to be 53 parts to each ingredient (and != null wasn't working when I tried it)
                 //System.out.println(ingredient[1]); //confirmation of running through all
                 thisIngredient = new Ingredient(ingredient); //create new ingredient object

@@ -8,6 +8,6 @@ public class AddIngredient implements Command{
         String ingredient_name = keyboard.nextLine("Please enter the name of the ingredient: ");
 
         Ingredient ingredient = IngredientProcess.readIngredientByName(ingredient_name);
-        System.out.println(ingredient.id + ingredient.name);
+        System.out.println(ingredient);
     }
 }

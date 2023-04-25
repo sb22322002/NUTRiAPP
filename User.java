@@ -83,8 +83,8 @@ public class User {
     * @param birthdate a String representing the user's birthdate in the format "YYYY-MM-DD"
     * @return the age of the user as an int
     */
-   public static int getAge (String birthdate) {
-      LocalDate dob = LocalDate.parse(birthdate); 
+   public int calcAge () {
+      LocalDate dob = LocalDate.parse(bday); 
       LocalDate curDate = LocalDate.now();
       return Period.between(dob, curDate).getYears();
    }
