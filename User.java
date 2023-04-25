@@ -25,6 +25,8 @@ public class User {
    private String bday;
    private String username;
    private ArrayList<Ingredient> ingredients = new ArrayList<Ingredient>();
+   private ArrayList<Recipe> recipes = new ArrayList<Recipe>();
+   private ArrayList<Meal> meals = new ArrayList<Meal>();
    private ArrayList<HighIntensityWorkout> high_intensity_workouts = new ArrayList<HighIntensityWorkout>();
    private ArrayList<ModerateIntensityWorkout> moderate_intensity_workouts = new ArrayList<ModerateIntensityWorkout>();
    private ArrayList<LowIntensityWorkout> low_intensity_workouts = new ArrayList<LowIntensityWorkout>();
@@ -66,6 +68,8 @@ public class User {
    public double getActivity() { return activity; }
    // note - naming conventions for accessors are due to ObjectMapper reading
    public ArrayList<Ingredient> getIngredients(){ return ingredients; }
+   public ArrayList<Recipe> getRecipes(){ return recipes; }
+   public ArrayList<Meal> getMeals(){ return meals; }
    public ArrayList<HighIntensityWorkout> getHigh_intensity_workouts(){ return high_intensity_workouts; }
    public ArrayList<ModerateIntensityWorkout> getModerate_intensity_workouts(){ return moderate_intensity_workouts; }
    public ArrayList<LowIntensityWorkout> getLow_intensity_workouts(){ return low_intensity_workouts; }
@@ -78,6 +82,8 @@ public class User {
    public void setGoal(String _goal) { goal = _goal; }
    public void setBday(String _bday) { bday = _bday; }
    public void addIngredient(Ingredient ingredient) { ingredients.add(ingredient); }
+   public void addRecipe(Recipe recipe) { recipes.add(recipe); }
+   public void addMeal(Meal meal){ meals.add(meal); }
    public void setActivity(double _activity) { activity = _activity; }
    public void addHighIntensityWorkout(HighIntensityWorkout workout) { high_intensity_workouts.add(workout); }
    public void addModerateIntensityWorkout(ModerateIntensityWorkout workout) { moderate_intensity_workouts.add(workout); }

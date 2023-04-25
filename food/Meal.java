@@ -1,10 +1,16 @@
+import java.util.ArrayList;
 public class Meal {
-    Recipe[] recipes;
-    String instructions;
+    String name;
+    ArrayList<Recipe> recipes;
     
-    Meal(Recipe[] recipes, String instructions) {
+    Meal(){}
+    
+    Meal(String name, ArrayList<Recipe> recipes) {
+        this.name = name;
         this.recipes = recipes;
-        this.instructions = instructions; 
     }
+
+    public String getName(){ return name; }
+    public ArrayList<Recipe> getRecipes(){ return recipes; }
 
 }
