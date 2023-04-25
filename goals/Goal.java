@@ -1,6 +1,7 @@
 public interface Goal {
     /**
-     * @return
+     * Changes the target calories to be eaten per day
+     * @return the calories that the new target is 
      */
-    double setTargetCalories();
+    double setTargetCalories(double newTarget);
 }
