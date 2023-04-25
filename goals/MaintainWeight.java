@@ -1,9 +1,13 @@
 public class MaintainWeight implements Goal {
+    double targetCalories;
+
+    public MaintainWeight() {}
+
 
     @Override
-    public double setTargetCalories() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setTargetCalories'");
+    public double setTargetCalories(double newTarget) {
+        this.targetCalories = newTarget;
+        return targetCalories;
     }
-    
+
 }
