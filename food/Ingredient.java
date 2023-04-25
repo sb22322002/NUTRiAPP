@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Ingredient {
     String id;
     String name;
